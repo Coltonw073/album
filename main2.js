@@ -28,7 +28,7 @@ async function login() {
   data = await result.json();
   token = data.access_token;
   a = 0;
-  while (a < 5) {
+  while (a < 10) {
     result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=' + (a*50).toString() + '', {
       method: 'GET',
       headers: {
@@ -37,8 +37,8 @@ async function login() {
     });
     results = await result.json();
     b = 0;
-    while (b < result.items.length) {
-      tracks.push(result.items[b]);
+    while (b < results.items.length) {
+      tracks.push(results.items[b]);
       b = b + 1;
     }
     a = a + 1;
