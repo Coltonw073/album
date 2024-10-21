@@ -27,6 +27,7 @@ async function login() {
   });
   data = await result.json();
   token = data.access_token;
+  a = 0;
   while (a < 5) {
     result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=100&offset=' + (a*100).toString() + '', {
       method: 'GET',
