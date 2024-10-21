@@ -29,7 +29,7 @@ async function login() {
   token = data.access_token;
   a = 0;
   while (a < 5) {
-    result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=100&offset=' + (a*100).toString() + '', {
+    result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50&offset=' + (a*50).toString() + '', {
       method: 'GET',
       headers: {
         'Authorization' : 'Bearer ' + token
