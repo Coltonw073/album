@@ -27,12 +27,20 @@ async function login() {
   });
   data = await result.json();
   token = data.access_token;
-  result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10&offset=0', {
-    method: 'GET',
-    headers: {
-      'Authorization' : 'Bearer ' + token
+  while (a < 5) {
+    result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=100&offset=' + (a*100).toString() + '', {
+      method: 'GET',
+      headers: {
+        'Authorization' : 'Bearer ' + token
+      }
+    });
+    results = await result.json();
+    b = 0;
+    while (b < result.items.length) {
+      tracks.push(result.items[b]);
+      b = b + 1;
     }
-  });
-  results = await result.json();
+    a = a + 1;
+  }
 }
 login();
