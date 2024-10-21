@@ -34,49 +34,5 @@ async function login() {
     }
   });
   results = await result.json();
-  a = 0;
-  while (a < 10) {
-    document.getElementById("blockim" + (a+1).toString()).style.backgroundImage = "url('" + results.items[a].album.images[0].url +  "')";
-    document.getElementById("blocktxt" + (a+1).toString()).innerHTML = (a+1).toString() + '. ' + results.items[a].name;
-    a = a + 1;
-  }
-  setTimeout(function() {
-    rep();
-  }, 1000);
-}
-function next() {
-  atr = document.getElementById('next').getAttribute('atr');
-  bnum = parseInt(atr.substring(1))
-  if (bnum != 1 && bnum != 10) {
-    document.getElementById('block' + bnum.toString()).style.animation = 'fromcentertoleft 1s 0s 1 normal linear forwards';
-    document.getElementById('block' + (bnum+1).toString()).style.animation = 'fromrighttocenter 1s 0s 1 normal linear forwards';
-    if (bnum != 9) {
-      document.getElementById('block' + (bnum+2).toString()).style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
-    }
-    if (bnum != 1) {
-      document.getElementById('block' + (bnum-1).toString()).style.animation = 'fromlefttooff 1s 0s 1 normal linear forwards';
-    }
-    document.getElementById('next').setAttribute('atr', 'b' + (bnum+1).toString())
-    document.getElementById('prev').setAttribute('atr', 'b' + (bnum+1).toString())
-  }
-  if (bnum == 9) {
-    document.getElementById('block1').style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
-  }
-  if (bnum == 10) {
-    document.getElementById('block10').style.animation = 'fromcentertoleft 1s 0s 1 normal linear forwards';
-    document.getElementById('block9').style.animation = 'fromlefttooff 1s 0s 1 normal linear forwards';
-    document.getElementById('block1').style.animation = 'fromrighttocenter 1s 0s 1 normal linear forwards';
-    document.getElementById('block2').style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
-    document.getElementById('next').setAttribute('atr', 'b1');
-    document.getElementById('prev').setAttribute('atr', 'b1');
-  }
-  if (bnum == 1) {
-    document.getElementById('block1').style.animation = 'fromcentertoleft 1s 0s 1 normal linear forwards';
-    document.getElementById('block10').style.animation = 'fromlefttooff 1s 0s 1 normal linear forwards';
-    document.getElementById('block2').style.animation = 'fromrighttocenter 1s 0s 1 normal linear forwards';
-    document.getElementById('block3').style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
-    document.getElementById('next').setAttribute('atr', 'b2');
-    document.getElementById('prev').setAttribute('atr', 'b2');
-  }
 }
 login();
