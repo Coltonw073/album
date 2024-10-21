@@ -44,4 +44,5 @@ async function login() {
     a = a + 1;
   }
 }
+console.log('s');
 login();
