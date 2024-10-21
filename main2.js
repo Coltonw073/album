@@ -14,7 +14,7 @@ async function login() {
   code = urlParams.get('code');
   body = "grant_type=authorization_code";
   body += "&code=" + code;
-  body += "&redirect_uri=" + encodeURI('https://coltonw073.github.io/test-js2/test.html');
+  body += "&redirect_uri=" + encodeURI('https://coltonw073.github.io/album/test.html');
   body += "&client_id=" + clientId;
   body += "&client_secret=" + clientSecret;
   result = await fetch('https://accounts.spotify.com/api/token', {
